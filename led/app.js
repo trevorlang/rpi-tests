@@ -1,6 +1,4 @@
-let OnOff = require('onoff');
-
-let Gpio = OnOff.gpio;
+let Gpio = require('onoff').gpio;
 let	led = new Gpio(4, 'out');
 let interval;
 
