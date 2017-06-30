@@ -1,8 +1,8 @@
 const OnOff = require('onoff');
 
-let GPIO = OnOff.gpio,
-	led = new GPIO(4, 'out'),
-	interval;
+let GPIO = OnOff.gpio;
+let	led = new GPIO(4, 'out');
+let interval;
 
 console.log("Hello!");
 
