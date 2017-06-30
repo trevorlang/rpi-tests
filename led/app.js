@@ -1,4 +1,4 @@
-let Gpio = require('onoff').gpio;
+let Gpio = require('onoff').Gpio;
 let	led = new Gpio(4, 'out');
 let interval;
 
