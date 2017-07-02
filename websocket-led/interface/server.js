@@ -1,7 +1,9 @@
 const express = require('express');
 const SocketServer = require('ws').Server;
 const path = require('path');
-const led = require('./led');
+const Output = require('./output');
+
+const led = new Output(4);
 
 const PORT = 1337;
 const INDEX = path.join(__dirname, 'index.html');
@@ -20,10 +22,13 @@ wss.on('connection', (ws) => {
 
   ws.on('message', function incoming(data) {
 
-    const json_data = JSON.parse(data);
+    const json_data = JSON.parse(JSON.parse(data));
+
+    console.log('data', json_data);
 
     if (json_data.action === "led_change") {
       if (json_data.state === 1) {
+        console.log(led);
         led.on();
       } else {
         led.off();
